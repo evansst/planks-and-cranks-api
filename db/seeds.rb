@@ -57,7 +57,8 @@ tori.avatar.attach(io: File.open('/Users/Sam/Pictures/Photos Library.photoslibra
     }
   )
 
-  genius.images.attach(io: File.open('/Users/Sam/Downloads/s1600_max_920_77166.jpg'), filename: 's1600_max_920_77166.jpg')
+  genius.add_image(io: File.open('/Users/Sam/Downloads/s1600_max_920_77166.jpg'))
+  # genius.add_image('/Users/Sam/Downloads/s1600_max_920_77166.jpg')
 
   joplin = Listing.create(
     gear_type: 'Mountain Bike',
@@ -88,16 +89,16 @@ tori.avatar.attach(io: File.open('/Users/Sam/Pictures/Photos Library.photoslibra
     }
   )
 
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/2020-Juliana-Joplin-C-S.jpg'), filename: '2020-Juliana-Joplin-C-S.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D7.jpg'), filename: 'AQUGRE_D7.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D1.jpg'), filename: 'AQUGRE_D1.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D10.jpg'), filename: 'AQUGRE_D10.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D9.jpg'), filename: 'AQUGRE_D9.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D2.jpg'), filename: 'AQUGRE_D2.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D8.jpg'), filename: 'AQUGRE_D8.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D4.jpg'), filename: 'AQUGRE_D4.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D11.jpg'), filename: 'AQUGRE_D11.jpg')
-  joplin.images.attach(io: File.open('/Users/Sam/Downloads/AQUGRE_D5.jpg'), filename: 'AQUGRE_D5.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/2020-Juliana-Joplin-C-S.jpg'), filename: '2020-Juliana-Joplin-C-S.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D7.jpg'), filename: 'AQUGRE_D7.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D1.jpg'), filename: 'AQUGRE_D1.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D10.jpg'), filename: 'AQUGRE_D10.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D9.jpg'), filename: 'AQUGRE_D9.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D2.jpg'), filename: 'AQUGRE_D2.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D8.jpg'), filename: 'AQUGRE_D8.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D4.jpg'), filename: 'AQUGRE_D4.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D11.jpg'), filename: 'AQUGRE_D11.jpg')
+  joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D5.jpg'), filename: 'AQUGRE_D5.jpg')
 
 
 end

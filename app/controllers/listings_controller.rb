@@ -53,7 +53,9 @@ class ListingsController < ApplicationController
     end
 
     def set_image_urls listing
-      listing.images.map { |image| 'http://localhost:3000' + rails_blob_path(image, only_path: true) }
+      listing.images.map do |image|
+        'http://localhost:3000' + rails_blob_path(image, only_path: true) 
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
