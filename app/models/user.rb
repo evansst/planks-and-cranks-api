@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_one_attached :avatar
-
-  attr_accessor :avatar_url
+  has_secure_password
+  mount_uploader :avatar, AvatarUploader
 end

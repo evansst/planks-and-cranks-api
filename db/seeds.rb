@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 Listing.destroy_all
 User.destroy_all
@@ -16,7 +17,8 @@ sam = User.create(
   email_address: 'sevansam@gmail.com'
 )
 
-sam.avatar.attach(io: File.open('/Users/Sam/Pictures/Photos Library.photoslibrary/resources/derivatives/8/8CE9F67F-5F51-4DEF-A5B4-635E716DFD73_1_105_c.jpeg'), filename: '8CE9F67F-5F51-4DEF-A5B4-635E716DFD73_1_105_c.jpeg')
+sam.avatar = File.open('/Users/Sam/Pictures/Photos Library.photoslibrary/resources/derivatives/8/8CE9F67F-5F51-4DEF-A5B4-635E716DFD73_1_105_c.jpeg')
+sam.save!
 
 tori = User.create(
   name: 'Tori Hall',
@@ -25,7 +27,8 @@ tori = User.create(
   email_address: 'victoria.hall@colorado.edu'
 )
 
-tori.avatar.attach(io: File.open('/Users/Sam/Pictures/Photos Library.photoslibrary/resources/derivatives/F/F03DE1D7-3D84-49FA-9801-D829D04A4877_1_105_c.jpeg'), filename: 'F03DE1D7-3D84-49FA-9801-D829D04A4877_1_105_c.jpeg')
+tori.avatar = File.open('/Users/Sam/Pictures/Photos Library.photoslibrary/resources/derivatives/F/F03DE1D7-3D84-49FA-9801-D829D04A4877_1_105_c.jpeg')
+tori.save!
 
 genius = Listing.create(
   gear_type: 'Mountain Bike',
@@ -54,10 +57,13 @@ genius = Listing.create(
     'Tires': 'Maxxis DHF 2.5, Maxxis Aggressor 2.5',
     'Bars': 'Syncros 780mm',
     'Stem': 'Syncros 50mm',
-  }
+  },
+  images: [
+    File.open('/Users/Sam/Downloads/s1600_max_920_77166.jpg'),
+  ],
 )
 
-genius.add_image(io: File.open('/Users/Sam/Downloads/s1600_max_920_77166.jpg'))
+# genius.add_image(io: )
 
 joplin = Listing.create(
   gear_type: 'Mountain Bike',
@@ -85,7 +91,19 @@ joplin = Listing.create(
     'Tires': 'Bontrager Chupacabra TLR 2.8, Bontrager Chupacabra 2.8',
     'Bars': 'Bontrager Line Pro OCLV 750mm',
     'Stem': 'Bontrager Line Pro Alloy',
-  }
+  },
+  images: [
+    File.open('/Users/Sam/Downloads/2020-Juliana-Joplin-C-S.jpg'),
+    File.open('/Users/Sam/Downloads/AQUGRE_D7.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D1.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D10.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D9.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D2.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D8.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D4.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D11.jpg'), 
+    File.open('/Users/Sam/Downloads/AQUGRE_D5.jpg'), 
+  ],
 )
 
 trek = Listing.create(
@@ -114,26 +132,16 @@ trek = Listing.create(
     'Tires': 'Maxxis DHF 2.3, Maxxis DHRII 2.3',
     'Bars': 'Raceface Ride',
     'Stem': 'Raceface Ride',
-  }
+  },
+  images: [
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_01_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_02_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_03_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_04_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_05_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_06_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_07_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_08_2048x2048.jpg'),
+    File.open('/Users/Sam/Development/code/Mod3/project/images/BMT17383_PH1_09_2048x2048.jpg'),
+  ]
 )
-
-joplin.add_image(io: File.open('/Users/Sam/Downloads/2020-Juliana-Joplin-C-S.jpg'), filename: '2020-Juliana-Joplin-C-S.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D7.jpg'), filename: 'AQUGRE_D7.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D1.jpg'), filename: 'AQUGRE_D1.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D10.jpg'), filename: 'AQUGRE_D10.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D9.jpg'), filename: 'AQUGRE_D9.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D2.jpg'), filename: 'AQUGRE_D2.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D8.jpg'), filename: 'AQUGRE_D8.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D4.jpg'), filename: 'AQUGRE_D4.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D11.jpg'), filename: 'AQUGRE_D11.jpg')
-joplin.add_image(io: File.open('/Users/Sam/Downloads/AQUGRE_D5.jpg'), filename: 'AQUGRE_D5.jpg')
-
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_01_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_02_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_03_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_04_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_05_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_06_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_07_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_08_2048x2048.jpg?v=1597266636')
-trek.add_image(io: 'https://cdn.shopify.com/s/files/1/2318/5263/products/BMT17383_PH1_09_2048x2048.jpg?v=1597266636')

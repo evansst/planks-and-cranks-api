@@ -3,22 +3,14 @@ class ListingsController < ApplicationController
 
   # GET /listings
   def index
-    @listings = []
-    listings = Listing.all
+    @listings = Listing.all
 
-    listings.each do |listing|
-      image_urls = set_image_urls(listing)
-      @listings << { listing: listing, image_urls: image_urls}
-    end
-
-    render json: { listings: @listings }
+    render json: @listings
   end
 
   # GET /listings/1
   def show
-    image_urls = set_image_urls(@listing)
-
-    render json: { listing: @listing, image_urls: image_urls }
+    render json: @listing
   end
 
   # POST /listings
