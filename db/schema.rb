@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_210702) do
+ActiveRecord::Schema.define(version: 2020_08_18_230610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_210702) do
     t.string "brand"
     t.string "model"
     t.integer "year"
+    t.string "image_urls", default: [], array: true
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
