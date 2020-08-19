@@ -10,11 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    if @user.avatar.attached?
-      render json: { user: @user, avatar_url: url_for(@user.avatar) }
-    else
-      render json: { user: @user }
-    end
+    render json: { user: @user }
   end
 
   # POST /users
@@ -30,8 +26,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      @user.avatar.attach(user_params[:avatar])
-      render json: { user: @user, avatar_url: url_for(@user.avatar) }
+      render json: { user: @user }
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -50,6 +45,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :username, :password, :email_address, :avatar)
+      params.require(:user).permit(:name, :username, :password, :email_address)
     end
 end
