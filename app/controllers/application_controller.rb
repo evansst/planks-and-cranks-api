@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
 
   def authenticate
-    login(auth_header(request))
+    header = auth_header(request)
+    check_token(header)
   end
 
   private
@@ -9,15 +10,17 @@ class ApplicationController < ActionController::API
   def auth_header(request)
     auth_header = request.headers['Authorization']
 
-    unless auth_header
+    if !auth_header
       render json: { message: 'You need a token' }, status: :forbidden
+    else 
+      auth_header
     end
   end
   
-  def login(auth_header)
+  def check_token(header)
     begin
       decoded_token = JWT.decode(
-        auth_header.split(' ')[1],
+        header.split(' ')[1],
         'some special secret string'
       )
 

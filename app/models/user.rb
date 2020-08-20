@@ -3,5 +3,5 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :username, presence: true, uniqueness: true
-  validates :email_address, uniqueness: true
+  validates :email_address, presence: true, uniqueness: true
 end
