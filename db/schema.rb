@@ -17,19 +17,19 @@ ActiveRecord::Schema.define(version: 2020_08_19_191009) do
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
-    t.string "gear_type"
-    t.string "size"
-    t.string "condition"
-    t.float "price"
-    t.float "msrp"
+    t.string "gear_type" #
+    t.string "size" #
+    t.string "condition" #
+    t.float "price" #
+    t.float "msrp" #
     t.string "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.hstore "specs", default: {}, null: false
-    t.string "brand"
-    t.string "model"
-    t.integer "year"
+    t.string "brand" #
+    t.string "model" #
+    t.integer "year" #
     t.string "images", default: [], array: true
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
