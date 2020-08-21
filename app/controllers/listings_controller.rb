@@ -1,3 +1,5 @@
+require 'carrierwave/orm/activerecord'
+
 class ListingsController < ApplicationController
   before_action :authenticate, only: %i[create update destroy]
   before_action :set_listing, only: %i[show update destroy]
@@ -16,11 +18,12 @@ class ListingsController < ApplicationController
 
   # POST /listings
   def create
-    byebug
-
     @listing = Listing.new(listing_params)
 
     if @listing.save
+      if params[:images]
+        @listing.update(images: [File.open(params[:images])])
+      end
       render json: @listing, status: :created, location: @listing
     else
       render json: @listing.errors, status: :unprocessable_entity
