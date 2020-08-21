@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
 
     if !auth_header
       render json: { message: 'You need a token' }, status: :forbidden
-    else 
+    else
       auth_header
     end
   end

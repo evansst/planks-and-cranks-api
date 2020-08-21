@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[show update destroy]
+  before_action :authenticate, only: %i[update destroy]
+  before_action :set_listing, only: %i[show destroy]
 
   # GET /listings
   def index

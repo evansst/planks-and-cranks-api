@@ -30,7 +30,7 @@ tori = User.create(
 tori.avatar = File.open('/Users/Sam/Pictures/Photos Library.photoslibrary/resources/derivatives/F/F03DE1D7-3D84-49FA-9801-D829D04A4877_1_105_c.jpeg')
 tori.save!
 
-3.times do 
+6.times do 
   genius = Listing.create(
     gear_type: 'Mountain Bike',
     size: 'Medium',
