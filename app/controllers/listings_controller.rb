@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :authenticate, only: %i[update destroy]
-  before_action :set_listing, only: %i[show destroy]
+  before_action :authenticate, only: %i[create update destroy]
+  before_action :set_listing, only: %i[show update destroy]
 
   # GET /listings
   def index
@@ -16,6 +16,8 @@ class ListingsController < ApplicationController
 
   # POST /listings
   def create
+    byebug
+
     @listing = Listing.new(listing_params)
 
     if @listing.save
@@ -48,6 +50,6 @@ class ListingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.permit(:id, :gear_type, :size, :condition, :price, :msrp, :description, :user_id, :brand, :model, :year, { images: [] },{ specs: { }} )
+      params.permit(:listing, :id, :gear_type, :size, :condition, :price, :msrp, :description, :user_id, :brand, :model, :year, { images: [] })
     end
 end
