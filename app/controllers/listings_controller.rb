@@ -26,7 +26,7 @@ class ListingsController < ApplicationController
 
   # PATCH/PUT /listings/1
   def update
-     byebug
+
     if @listing.update(listing_params)
       render json: @listing
     else
@@ -40,14 +40,13 @@ class ListingsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_listing
+      @listing = Listing.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_listing
-    @listing = Listing.find(params[:id])
-  end
-
-  # Only allow a trusted parameter "white list" through.
-  def listing_params
-    params.permit!
-  end
+    # Only allow a trusted parameter "white list" through.
+    def listing_params
+      params.permit(:id, :gear_type, :size, :condition, :price, :msrp, :description, :user_id, :brand, :model, :year, { images: [] },{ specs: { }} )
+    end
 end
